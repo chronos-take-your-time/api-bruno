@@ -1,0 +1,16 @@
+meta {
+  name: Get a board
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{url}}/boards/:team_id/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  team_id: 
+  id: 
+}

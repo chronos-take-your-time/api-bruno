@@ -1,0 +1,16 @@
+meta {
+  name: Remove user from team
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{url}}/teams/:team_id/:user_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  team_id: 
+  user_id: 
+}

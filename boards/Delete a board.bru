@@ -1,0 +1,16 @@
+meta {
+  name: Delete a board
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{url}}/boards/:team_id/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  team_id: 
+  id: 
+}
