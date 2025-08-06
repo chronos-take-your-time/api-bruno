@@ -1,0 +1,89 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "chronos",
+    "version": "1.0",
+    "x-logo": {
+      "url": ""
+    }
+  },
+  "paths": {
+    "/teams/create/:id": {
+      "summary": "Construir a estrutura para um time",
+      "description": "O Clerk gerencia os times, entretanto eles ainda precisam do seu diretório no servidor para armazenar os quadros, para criar este diretório basta enviar uma requisição com o id desse time, se ele não existe ou sua pasta já existe é retornado um erro.",
+      "post": {
+        "tags": [],
+        "summary": "Criar um time",
+        "description": "Ainda que um time exista no Clerk sua estrutura de arquivos (diretório no qual seus quadros serão armazenados) deve ser criada de forma independente neste endpoint."
+      },
+      "x-last-modified": 1754498958950
+    },
+    "/teams/:team_id/:user_id": {
+      "summary": "Adicionar ou remover um usuário em relação a um time",
+      "description": "Adiciona ou remove um usuário em relação a um time de acordo com o id do time e seu próprio id, a operação no método `POST` adiciona e no `DELETE` remove.",
+      "post": {
+        "tags": [],
+        "summary": "Adicionar usuário a um time",
+        "description": "Adiciona usuário a um time no Clerk."
+      },
+      "x-last-modified": 1754499209325,
+      "delete": {
+        "description": "Remove um usuário de um time no Clerk.",
+        "tags": [],
+        "summary": "Remover usuário de um time"
+      }
+    },
+    "/teams/:team_id": {
+      "summary": "Ler ou remover um time",
+      "description": "Retorna uma lista dos membros de um determinado time caso o método seja `GET`, se for `DELETE` remove o time e seus quadros.",
+      "x-last-modified": 1754499308301,
+      "get": {
+        "description": "Retorna os usuários membros de um time.",
+        "tags": [],
+        "summary": "Ler membros de um time"
+      },
+      "delete": {
+        "description": "Remove um time do Clerk e da estrutura de diretórios de forma recursiva.",
+        "tags": [],
+        "summary": "Remover um time"
+      }
+    },
+    "/boards/:team_id/:id": {
+      "summary": "Ler, modificar ou remover um quadro",
+      "description": "Este endpoint aceita três métodos de requisição, `GET`, para retornar o conteúdo `JSON` de um quadro, `POST`, para enviar um novo conteúdo ao quadro e `DELETE` para remover o quadro.",
+      "get": {
+        "tags": [],
+        "summary": "Ler um quadro",
+        "description": "Retorna o conteúdo JSON de um quadro."
+      },
+      "post": {
+        "tags": [],
+        "summary": "Modificar um quadro",
+        "description": "Ao enviar esta requisição com um JSON é possível escrever um novo conteúdo para um quadro."
+      },
+      "delete": {
+        "tags": [],
+        "summary": "Remover quadro",
+        "description": "Remove um quadro especifico de um time, baseado nos seus respectivos identificadores."
+      },
+      "x-last-modified": 1754499482951
+    }
+  },
+  "components": {
+    "securitySchemes": {},
+    "schemas": {},
+    "headers": {},
+    "responses": {},
+    "parameters": {}
+  },
+  "tags": [],
+  "servers": [
+    {
+      "url": "https://chronos.api",
+      "description": "",
+      "variables": {},
+      "x-last-modified": 1754499367550
+    }
+  ],
+  "security": []
+}
